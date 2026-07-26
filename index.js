@@ -667,3 +667,64 @@
 //   return missingArray;
 // };
 // console.log("missingNumberFunction", missingNumberFunction());
+
+///////////////////////////      deeep copy
+// before moving to deep copy first understand how many way we can copy object this three way reference, shallow, and deep
+// const obj = {
+//   name: "vishal",
+//   age: undefined,
+//   address: {
+//     city: "mumbai",
+//     country: "india",
+//   },
+//   skills: [{ name: "js" }],
+//   grade: ["A", "B"],
+// };
+
+// reference copy
+// const obj2 = obj;
+// shallow copy (top level copy)
+// const obj2 = { ...obj };
+// const obj2 = Object.assign({}, obj);
+// deep copy
+// const obj2 = structuredClone(obj);
+// const obj2 = JSON.parse(JSON.stringify(obj));
+// obj2.name = "gupta";
+// obj2.address.city = "pune";
+// obj2.skills[0].name = "node";
+// obj2.grade[0] = "C";
+
+// console.log("obj", obj);
+// console.log("obj2", obj2);
+
+// Implement a deep copy without using built-in methods.
+// 1. If the value is not an object (or is null), return it directly (base case).
+// 2. Create a new object or array based on the original value.
+// 3. Loop through all own properties.
+// 4. Recursively copy each property.
+// 5. Return the newly created deep-copied object/array.
+
+// const deepCopy = (obj) => {
+//   // Base case: primitives and null can be returned as-is.
+//   if (typeof obj !== "object" || obj === null) {
+//     return obj;
+//   }
+
+//   // Object.keys() returns only the object's own properties
+//   // (ignores inherited properties from the prototype).
+//   let copiedVal = Array.isArray(obj) ? [] : {};
+//   for (const key of Object.keys(obj)) {
+//     copiedVal[key] = deepCopy(obj[key]);
+//   }
+
+//   return copiedVal;
+// };
+// const obj2 = deepCopy(obj);
+
+// obj2.name = "gupta";
+// obj2.address.city = "pune";
+// obj2.skills[0].name = "node";
+// obj2.grade[0] = "C";
+
+// console.log("obj", obj);
+// console.log("obj2", obj2);
