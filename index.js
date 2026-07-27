@@ -754,4 +754,70 @@
 // };
 // console.log("flattenArrayFunction", flattenArrayFunction(arr));
 
+///////////////////////////////////// Group array objects by key
+// input
+// const users = [
+//   { name: "Alice", department: "HR" },
+//   { name: "Bob", department: "IT" },
+//   { name: "Charlie", department: "HR" },
+//   { name: "David", department: "IT" },
+//   { name: "Eva", department: "Finance" },
+//   { name: "Vihal" },
+//   { name: "Gupta" },
+// ];
 
+// output
+// {
+//   HR: [
+//     { name: "Alice", department: "HR" },
+//     { name: "Charlie", department: "HR" }
+//   ],
+//   IT: [
+//     { name: "Bob", department: "IT" },
+//     { name: "David", department: "IT" }
+//   ],
+//   Finance: [
+//     { name: "Eva", department: "Finance" }
+//   ]
+// }
+// 1 way
+// const res = Object.groupBy(users, (item) => item.department);
+// console.log("res", res);
+
+// 2 way  (... spread operator create every time new array )
+// const groupBykey = (arr, key) => {
+//   const obj = {};
+//   for (const val of arr) {
+//     const keyValue = obj[val[key] || "Unknow"];
+//     obj[val[key] || "Unknow"] = keyValue ? [...keyValue, val] : [val];
+//   }
+//   return obj;
+// };
+
+// console.log("groupBykey", groupBykey(users, "department"));
+
+// 3 way use push method
+// const groupBykey = (arr, key) => {
+//   const obj = {};
+//   for (const val of arr) {
+//     const groupBy = val[key] || "Unknow";
+//     if (!obj[groupBy]) {
+//       obj[groupBy] = [];
+//     }
+//     obj[groupBy].push(val);
+//   }
+//   return obj;
+// };
+
+// console.log("groupBykey", groupBykey(users, "department"));
+
+// 4 way reduce method
+// const groupBykey = (arr, key) => {
+//   return arr.reduce((acc, elm) => {
+//     const group = elm[key] || "Unknow";
+//     (acc[group] ??= []).push(elm);
+//     return acc;
+//   }, {});
+// };
+
+// console.log("groupBykey", groupBykey(users, "department"));
