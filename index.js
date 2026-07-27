@@ -728,3 +728,30 @@
 
 // console.log("obj", obj);
 // console.log("obj2", obj2);
+
+//                           Flatten an array
+// const arr = [
+//   "vishal",
+//   ["gupta", [69, [{ question: "Flatten" }, { ages: [1, 2, 3] }]]],
+//   [10, 20],
+// ];
+
+// 1 way
+// const flattenArray = arr.flat(Infinity);
+// console.log("flattenArray 1", flattenArray);
+
+// 2way    recursion
+// const flattenArrayFunction = (arr, res = []) => {
+//   for (const val of arr) {
+//     if (Array.isArray(val)) {
+//       console.log("val", val);
+//       flattenArrayFunction(val, res);
+//     } else {
+//       res.push(val);
+//     }
+//   }
+//   return res;
+// };
+// console.log("flattenArrayFunction", flattenArrayFunction(arr));
+
+
