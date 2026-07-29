@@ -821,3 +821,29 @@
 // };
 
 // console.log("groupBykey", groupBykey(users, "department"));
+
+///////////////////////////////   Closures
+
+// const closuresTest = () => {
+//   let a = 10;
+//   return () => {
+//     const b = 10;
+//     console.log(a + b);
+//   };
+// };
+// const callback = closuresTest();
+// callback();
+
+//                   Closures (Counter)
+
+// function closuresCount() {
+//   let a = 1;
+//   return function callback() {
+//     console.log(++a);
+//   };
+// }
+// const callback = closuresCount();
+// callback();
+// callback();
+// callback();
+// callback();
