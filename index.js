@@ -847,3 +847,23 @@
 // callback();
 // callback();
 // callback();
+
+/////////////////////////  currying
+// const currying = (a) => (b) => (c) => a + b + c;
+// console.log("currying", currying(1)(2)(3));
+
+// infinte currying
+// const infinteCurrying = (a) => {
+//   console.log("a", a);
+//   return (b) => {
+//     console.log("b", b);
+//     if (b === undefined) return a;
+//     return infinteCurrying(a + b);
+//   };
+// };
+
+// console.log("infinteCurrying", infinteCurrying(1)(5)(10)());
+// 1 infinteCurrying(1) return function like this ReturnedFunction(5)(10)()
+// 2 ReturnedFunction(5) and its remember a value means 1 because of closures and it call recursive function like this infinteCurrying(1+5) with value 6 via addition. now after that new function create and now a become 6 and return function ReturnedFunction(10)()
+// 3 ReturnedFunction(10) and again it remember a value of 6 and call recursive call like this infinteCurrying(6+10). again new function create with a value 16 and return function ReturnedFunction()
+// 4 ReturnedFunction() after this call b is not there and it return a value
