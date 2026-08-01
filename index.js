@@ -867,3 +867,44 @@
 // 2 ReturnedFunction(5) and its remember a value means 1 because of closures and it call recursive function like this infinteCurrying(1+5) with value 6 via addition. now after that new function create and now a become 6 and return function ReturnedFunction(10)()
 // 3 ReturnedFunction(10) and again it remember a value of 6 and call recursive call like this infinteCurrying(6+10). again new function create with a value 16 and return function ReturnedFunction()
 // 4 ReturnedFunction() after this call b is not there and it return a value
+
+///////////////////////// Memoization
+
+// function square() {
+//   const memoObj = {};
+//   return (n) => {
+//     if (memoObj[n]) {
+//       console.log("memo value");
+//       return memoObj[n];
+//     }
+//     console.log("Calculating...");
+//     memoObj[n] = n * n;
+//     return memoObj[n];
+//   };
+// }
+// const memofunction = square();
+// console.log(memofunction(5)); // Calculating... 25
+// console.log(memofunction(5)); // Calculating... 25 (calculates again)
+
+// Generic memoize function (commonly asked in JavaScript interviews)
+// function memoize(fn) {
+//   const cache = {};
+//   return (...args) => {
+//     const key = JSON.stringify(args);
+//     console.log("key", key);
+
+//     if (key in cache) {
+//       console.log("memo value");
+//       return cache[key];
+//     }
+
+//     console.log("Calculating...");
+//     cache[key] = fn(...args);
+//     return cache[key];
+//   };
+// }
+// const add = (a, b) => a + b;
+// const addMemo = memoize(add);
+
+// console.log("addMemo", addMemo(2, 2));
+// console.log("addMemo", addMemo(2, 2));
