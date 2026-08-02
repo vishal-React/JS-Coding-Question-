@@ -908,3 +908,33 @@
 
 // console.log("addMemo", addMemo(2, 2));
 // console.log("addMemo", addMemo(2, 2));
+
+///////////////////////////  Debounce
+
+// const debounceFunc = (fn, delay = 400) => {
+//   let timer;
+
+//   return (...args) => {
+//     clearTimeout(timer);
+//     console.log("timer", timer);
+//     timer = setTimeout(() => {
+//       return fn(...args);
+//     }, delay);
+//   };
+// };
+
+// const nameFuntion = (val) => {
+//   console.log(val);
+// };
+
+// const debounceNmae = debounceFunc(nameFuntion, 400);
+
+// debounceNmae("vishal");
+
+// setTimeout(() => {
+//   debounceNmae("gupta");
+// }, 600);
+
+// setTimeout(() => {
+//   debounceNmae("vishal Gupta");
+// }, 1050);
