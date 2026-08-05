@@ -938,3 +938,42 @@
 // setTimeout(() => {
 //   debounceNmae("vishal Gupta");
 // }, 1050);
+
+//////////////////////////   throttle
+// const throttle = (fn, delay = 1000) => {
+//   let prevTime;
+
+//   return (...ms) => {
+//     // console.log(Date.now() - prevTime);
+//     if (prevTime === undefined || Date.now() - prevTime >= delay) {
+//       fn(...ms);
+//       prevTime = Date.now();
+//     }
+//   };
+// };
+
+// const print = (ms) => {
+//   console.log("Executed at ", ms);
+// };
+
+// const throttledPrint = throttle(print, 1000);
+
+// throttledPrint("0");
+// setTimeout(() => {
+//   throttledPrint("100");
+// }, 100);
+// setTimeout(() => {
+//   throttledPrint("500");
+// }, 500);
+// setTimeout(() => {
+//   throttledPrint("1000");
+// }, 1000);
+// setTimeout(() => {
+//   throttledPrint("1500");
+// }, 1500);
+// setTimeout(() => {
+//   throttledPrint("2200");
+// }, 2000);
+// setTimeout(() => {
+//   throttledPrint("2500");
+// }, 2200);
