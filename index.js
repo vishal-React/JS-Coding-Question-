@@ -977,3 +977,48 @@
 // setTimeout(() => {
 //   throttledPrint("2500");
 // }, 2200);
+
+/////////////////////       Promise.all().
+
+// const p1 = Promise.resolve(10);
+
+// const p2 = new Promise((resolve) => {
+//   setTimeout(() => resolve(20), 2000);
+// });
+
+// const p3 = Promise.resolve(30);
+
+// const p4 = Promise.reject("Failed");
+
+// Promise.all([false, null, undefined, ""])
+//   .then((res) => console.log(" bulit in res", res))
+//   .catch((err) => console.log(" bulit in err", err))
+//   .finally(() => console.log("bulit in Finally"));
+
+// const promiseAll = (arr) => {
+//   // this function have to contain one promise that eithere resolve or reject to return it that is new promise
+//   return new Promise((resolve, reject) => {
+//     if (arr.length === 0) return resolve([]);
+//     let result = [];
+//     let completed = 0;
+//     for (let i = 0; i < arr.length; i++) {
+//       Promise.resolve(arr[i])
+//         .then((res) => {
+//           result[i] = res;
+//           completed++;
+
+//           if (completed === arr.length) {
+//             resolve(result);
+//           }
+//         })
+//         .catch((err) => {
+//           reject(err);
+//         });
+//     }
+//   });
+// };
+
+// promiseAll([false, null, undefined, "", p1, p2, p3])
+//   .then((res) => console.log("own fun res", res))
+//   .catch((err) => console.log("own fun err", err))
+//   .finally(() => console.log("own fun Finally"));
