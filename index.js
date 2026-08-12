@@ -1022,3 +1022,61 @@
 //   .then((res) => console.log("own fun res", res))
 //   .catch((err) => console.log("own fun err", err))
 //   .finally(() => console.log("own fun Finally"));
+
+////////////  polyfills
+
+// map polyfills
+
+// Array.prototype.myMap = function (callback) {
+//   const newArr = [];
+//   for (let i = 0; i < this.length; i++) {
+//     newArr[i] = callback(this[i], i, this);
+//   }
+//   return newArr;
+// };
+
+// const numbers = [1, 2, 3, 4];
+// const result = numbers.myMap((num, i, arr) => {
+//   return num * i;
+// });
+// console.log("res", result, numbers);
+
+////// filter polyfills
+
+// Array.prototype.myFilter = function (callback) {
+//   const newArr = [];
+//   for (let i = 0; i < this.length; i++) {
+//     const truthyVal = callback(this[i], i, this);
+//     if (truthyVal) {
+//       newArr.push(this[i]);
+//     }
+//   }
+//   return newArr;
+// };
+
+// const numbers = [1, 2, 3, 4, 6];
+// const result = numbers.myFilter((num, i, arr) => {
+//   return num % 2 === 0;
+// });
+// console.log("res", result, numbers);
+
+//////// reduce polyfills
+// Array.prototype.myReduce = function (callback, initialVal) {
+//   // if initialVal is not there than take zero index val
+//   const hasNoInitialValue = arguments.length <= 1;
+//   if (hasNoInitialValue) {
+//     initialVal = this[0];
+//   }
+
+//   for (let i = hasNoInitialValue ? 1 : 0; i < this.length; i++) {
+//     initialVal = callback(initialVal, this[i], i, this);
+//   }
+//   return initialVal;
+// };
+
+// const numbers = [1, 2, 3, 4, 5];
+// const result = numbers.myReduce((acc, elm, i, arr) => {
+//   return acc + elm;
+// }, 0);
+
+// console.log("result", result);
