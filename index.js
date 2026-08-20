@@ -1080,3 +1080,57 @@
 // }, 0);
 
 // console.log("result", result);
+
+/////////////////////   Move all zeros to the end
+// Input:  [0, 1, 0, 3, 12]
+// Output: [1, 3, 12, 0, 0]
+
+// const arr = [0, 1, 0, 3, 12];
+// 010312
+// 100312
+// 130012
+// 131200
+// const newArr = [];
+// for (let i = 0; i < arr.length; i++) {
+//   const element = arr[i];
+//   if (element === 0) {
+//     console.log(element);
+//     newArr.push(element);
+//   } else {
+//     newArr.unshift(element);
+//   }
+// }
+
+// console.log("newArr", newArr);
+// const arr = [];
+
+// let i = 0;
+// let j = 1;
+// while (j <= arr.length - 1) {
+//   if (arr[i] !== 0) {
+//     i++;
+//     j++;
+//   } else if (arr[j] === 0) {
+//     j++;
+//   } else {
+//     [arr[i], arr[j]] = [arr[j], arr[i]];
+//     i++;
+//     j++;
+//   }
+// }
+// console.log("arr", arr);
+
+const arr = [1, 2, 0, 0, 1, 12];
+
+let i = 0;
+
+for (let j = 0; j < arr.length; j++) {
+  if (arr[j] !== 0) {
+    console.log(j);
+    console.log(i);
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+    i++;
+  }
+}
+
+console.log(arr);
