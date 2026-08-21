@@ -1090,6 +1090,7 @@
 // 100312
 // 130012
 // 131200
+// 1 way
 // const newArr = [];
 // for (let i = 0; i < arr.length; i++) {
 //   const element = arr[i];
@@ -1102,6 +1103,8 @@
 // }
 
 // console.log("newArr", newArr);
+
+// 2 way
 // const arr = [];
 
 // let i = 0;
@@ -1120,17 +1123,15 @@
 // }
 // console.log("arr", arr);
 
-const arr = [1, 2, 0, 0, 1, 12];
+// 3 way
+// const arr = [1, 2, 0, 0, 1, 12];
+// let i = 0;
 
-let i = 0;
+// for (let j = 0; j < arr.length; j++) {
+//   if (arr[j] !== 0) {
+//     [arr[i], arr[j]] = [arr[j], arr[i]];
+//     i++;
+//   }
+// }
 
-for (let j = 0; j < arr.length; j++) {
-  if (arr[j] !== 0) {
-    console.log(j);
-    console.log(i);
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-    i++;
-  }
-}
-
-console.log(arr);
+// console.log(arr);
