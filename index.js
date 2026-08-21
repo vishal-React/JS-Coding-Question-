@@ -1135,3 +1135,23 @@
 // }
 
 // console.log(arr);
+
+///////// common prefix.
+// const words = ["flower", "vi", "flow", "floght"];
+// let firstWord = words[0];
+
+// function checkPrefix() {
+//   let res = "";
+//   for (let j = 0; j < firstWord.length; j++) {
+//     const firstWordFirstLetter = firstWord[j];
+//     for (let i = 0; i < words.length; i++) {
+//       const currentWordFirstLetter = words[i][j];
+//       if (currentWordFirstLetter !== firstWordFirstLetter) {
+//         return res;
+//       }
+//     }
+//     res += firstWordFirstLetter;
+//   }
+//   return res;
+// }
+// console.log("checkPrefix", checkPrefix());
