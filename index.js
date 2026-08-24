@@ -207,6 +207,30 @@
 // }
 // console.log(newArr)
 
+// 5 way Remove Duplicates from Sorted Array two pointer
+// Input:  [0,0,1,1,1,2,2,3,3,4]
+// Expected:
+// 5
+// [0,1,2,3,4]
+
+// left → points to the position of the current/last unique value
+// right → moves through the array to find the next unique value
+
+// const arr = [0, 1, 3, 4, 4, 5];
+// let left = 0;
+
+// for (let right = 1; right < arr.length; right++) {
+//   if (arr[left] !== arr[right]) {
+//     arr[left + 1] = arr[right];
+//     left++;
+//   }
+// }
+
+// arr.length = left + 1;
+// console.log("left", left);
+// console.log("arr", arr.length);
+// console.log("arr", arr);
+
 //                              find duplicate number
 
 // const arr = [1, 2, 3, 4, 1, 2];
@@ -1157,6 +1181,7 @@
 // console.log(arr);
 
 ///////// common prefix.
+
 // const words = ["flower", "vi", "flow", "floght"];
 // let firstWord = words[0];
 
