@@ -512,6 +512,26 @@
 // };
 
 // console.log("twoSum", twoSum());
+// 3 way  two pointer if array is sorted
+// const numbers = [2, 7, 11, 11, 15];
+// const target = 22;
+
+// function twoSum() {
+//   let left = 0;
+//   let right = numbers.length - 1;
+
+//   while (right > left) {
+//     const sum = numbers[left] + numbers[right];
+//     if (sum === target) return [++left, ++right];
+//     if (sum > target) {
+//       right--;
+//     } else {
+//       left++;
+//     }
+//   }
+//   return [];
+// }
+// console.log("twoSum", twoSum());
 
 //                   sum of array
 // const arr = [1, 2, 3];
