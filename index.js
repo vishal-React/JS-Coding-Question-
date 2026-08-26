@@ -1200,3 +1200,39 @@
 //   return res;
 // }
 // console.log("checkPrefix", checkPrefix());
+
+/////////////////////////  Container With Most Water
+
+// 1 way brute force approach
+// const arr = [1, 7, 7, 1];
+// let max = 0;
+
+// for (let i = 0; i < arr.length - 1; i++) {
+//   const elementI = arr[i];
+//   for (let j = i + 1; j < arr.length; j++) {
+//     const elementJ = arr[j];
+//     const shorterWallHeight = elementI > elementJ ? elementJ : elementI;
+//     const area = shorterWallHeight * (j - i);
+//     if (max < area) {
+//       max = area;
+//     }
+//   }
+// }
+// console.log("max", max);
+
+// 2 way two pointer 
+// const arr = [1, 100, 100, 1];
+// let max = 0;
+
+// let left = 0;
+// let right = arr.length - 1;
+// while (right > left) {
+//   const shorterWallHeight = arr[left] > arr[right] ? arr[right] : arr[left];
+//   const width = right - left;
+//   const area = shorterWallHeight * width;
+//   if (max < area) {
+//     max = area;
+//   }
+//   arr[left] > arr[right] ? right-- : left++;
+// }
+// console.log("max", max);
