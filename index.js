@@ -1220,7 +1220,7 @@
 // }
 // console.log("max", max);
 
-// 2 way two pointer 
+// 2 way two pointer
 // const arr = [1, 100, 100, 1];
 // let max = 0;
 
@@ -1236,3 +1236,29 @@
 //   arr[left] > arr[right] ? right-- : left++;
 // }
 // console.log("max", max);
+
+//////////////////////// Sort Colors three pointers
+// You are given an array containing only three values:
+// 0 → Red
+// 1 → White
+// 2 → Blue
+// const arr = [2, 1];
+
+// let low = 0;
+// let mid = 0;
+// let high = arr.length - 1;
+
+// while (mid <= high) {
+//   if (arr[mid] === 0) {
+//     [arr[mid], arr[low]] = [arr[low], arr[mid]];
+//     mid++;
+//     low++;
+//   } else if (arr[mid] === 1) {
+//     mid++;
+//   } else {
+//     [arr[high], arr[mid]] = [arr[mid], arr[high]];
+//     high--;
+//   }
+// }
+
+// console.log(arr);
