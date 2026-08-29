@@ -1262,3 +1262,42 @@
 // }
 
 // console.log(arr);
+
+// 3Sum: find all unique triplets in a sorted array
+// const arr = [-2, -2, -1, 0, 0, 1, 2, 2];
+// const target = 0;
+
+// const result = [];
+
+// for (let i = 0; i < arr.length - 2; i++) {
+//   // ignore current loop if same value
+//   if (i > 0 && arr[i] === arr[i - 1]) {
+//     continue;
+//   }
+//   let left = i + 1;
+//   let right = arr.length - 1;
+//   const element = arr[i];
+
+//   while (left < right) {
+//     const sum = arr[left] + arr[right] + element;
+//     if (sum === target) {
+//       result.push([element, arr[left], arr[right]]);
+//       // move left pointer if same value
+//       while (left < right && arr[left] === arr[left + 1]) {
+//         left++;
+//       }
+//       // move right pointer if same value
+//       while (left < right && arr[right] === arr[right - 1]) {
+//         right--;
+//       }
+//       left++;
+//       right--;
+//     } else if (sum > target) {
+//       right--;
+//     } else {
+//       left++;
+//     }
+//   }
+// }
+
+// console.log(result);
