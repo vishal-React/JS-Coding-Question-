@@ -1301,3 +1301,28 @@
 // }
 
 // console.log(result);
+
+////////////////////////////// Squares of a Sorted Array two pointer
+// Input: nums = [-4, -1, 0, 3, 10];
+// Output: [0, 1, 9, 16, 100];
+
+// const arr = [-5, -4, 1, 2, 3];
+// let left = 0;
+// let right = arr.length - 1;
+// let newArray = [];
+
+// for (let position = arr.length - 1; position >= 0; position--) {
+//   let leftSquare = arr[left] * arr[left];
+//   let rightSquare = arr[right] * arr[right];
+//   console.log(leftSquare, rightSquare);
+
+//   if (leftSquare > rightSquare) {
+//     newArray[position] = leftSquare;
+//     left++;
+//   } else {
+//     newArray[position] = rightSquare;
+//     right--;
+//   }
+// }
+
+// console.log("newArray", newArray);
