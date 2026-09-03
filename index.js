@@ -1326,3 +1326,30 @@
 // }
 
 // console.log("newArray", newArray);
+
+///////////////////////// Reverse Vowels of a String
+// Input:
+// s = "hello"
+// Output:
+// "holle"
+
+// const str = "hello";
+// const arr = str.split("");
+// const set = new Set("aeiouAEIOU");
+
+// let left = 0;
+// let right = arr.length - 1;
+
+// while (right > left) {
+//   if (!set.has(arr[left])) {
+//     left++;
+//   } else if (!set.has(arr[right])) {
+//     right--;
+//   } else {
+//     [arr[left], arr[right]] = [arr[right], arr[left]];
+//     left++;
+//     right--;
+//   }
+// }
+
+// console.log(arr.join(""));
