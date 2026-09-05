@@ -1353,3 +1353,68 @@
 // }
 
 // console.log(arr.join(""));
+
+////////////////////// Backspace String Compare two pointer
+// Here # means backspace.
+// s = "ab#c";
+// t = "ad#c";
+// Output: true;
+// Given two strings s and t, determine whether they are equal after processing all the backspaces.
+
+// 1 way brute force approach
+// const s = "ab#c";
+// const t = "ad#c";
+// function removeHash(s, t) {
+//   const arr1 = s.split("");
+//   const arr2 = t.split("");
+
+//   let newArr1 = [];
+//   let newArr2 = [];
+
+//   for (let i = 0; i < arr1.length; i++) {
+//     if (arr1[i] === "#") {
+//       newArr1.pop();
+//     } else {
+//       newArr1.push(arr1[i]);
+//     }
+//   }
+
+//   for (let i = 0; i < arr2.length; i++) {
+//     if (arr2[i] === "#") {
+//       newArr2.pop();
+//     } else {
+//       newArr2.push(arr2[i]);
+//     }
+//   }
+//   console.log("newArr1", newArr1);
+//   console.log("newArr2", newArr2);
+//   return newArr1.join("") === newArr2.join("") ? true : false;
+// }
+// console.log("removeHash", removeHash(s, t));
+
+// 2 way two pointer
+const s = "aaa##bc";
+const t = "abc";
+function removeHash(a, b) {
+  let aPointer = a.length - 1;
+  let bPointer = b.length - 1;
+  let aSkips = 0;
+  let bSkips = 0;
+
+  while (true) {
+    if (a[aPointer] === b[bPointer]) {
+      aPointer--;
+      bPointer--;
+    } else if (a[aPointer] === "#") {
+      aSkips++;
+      aPointer--;
+    } else if (b[bPointer] === "#") {
+      bSkips++;
+      bPointer--;
+    } else {
+      return false;
+    }
+  }
+  return true;
+}
+console.log("removeHash", removeHash(s, t));
