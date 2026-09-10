@@ -1365,25 +1365,22 @@
 // const s = "ab#c";
 // const t = "ad#c";
 // function removeHash(s, t) {
-//   const arr1 = s.split("");
-//   const arr2 = t.split("");
-
 //   let newArr1 = [];
 //   let newArr2 = [];
 
-//   for (let i = 0; i < arr1.length; i++) {
-//     if (arr1[i] === "#") {
+//   for (let i = 0; i < s.length; i++) {
+//     if (s[i] === "#") {
 //       newArr1.pop();
 //     } else {
-//       newArr1.push(arr1[i]);
+//       newArr1.push(s[i]);
 //     }
 //   }
 
-//   for (let i = 0; i < arr2.length; i++) {
-//     if (arr2[i] === "#") {
+//   for (let i = 0; i < t.length; i++) {
+//     if (t[i] === "#") {
 //       newArr2.pop();
 //     } else {
-//       newArr2.push(arr2[i]);
+//       newArr2.push(t[i]);
 //     }
 //   }
 //   console.log("newArr1", newArr1);
@@ -1393,28 +1390,51 @@
 // console.log("removeHash", removeHash(s, t));
 
 // 2 way two pointer
-const s = "aaa##bc";
-const t = "abc";
-function removeHash(a, b) {
-  let aPointer = a.length - 1;
-  let bPointer = b.length - 1;
-  let aSkips = 0;
-  let bSkips = 0;
+// const s = "bxj##tw"; //btw
+// const t = "bxo#j##tw"; //btw
 
-  while (true) {
-    if (a[aPointer] === b[bPointer]) {
-      aPointer--;
-      bPointer--;
-    } else if (a[aPointer] === "#") {
-      aSkips++;
-      aPointer--;
-    } else if (b[bPointer] === "#") {
-      bSkips++;
-      bPointer--;
-    } else {
-      return false;
-    }
-  }
-  return true;
-}
-console.log("removeHash", removeHash(s, t));
+// function backspaceCompare(s, t) {
+//   let a = s.length - 1;
+//   let b = t.length - 1;
+
+//   let skipA = 0;
+//   let skipB = 0;
+
+//   while (a >= 0 || b >= 0) {
+//     console.log("first");
+//     while (a >= 0) {
+//       console.log("a", a);
+//       if (s[a] === "#") {
+//         skipA++;
+//         a--;
+//       } else if (skipA > 0) {
+//         skipA--;
+//         a--;
+//       } else {
+//         break;
+//       }
+//     }
+
+//     while (b >= 0) {
+//       console.log("b", b);
+//       if (t[b] === "#") {
+//         skipB++;
+//         b--;
+//       } else if (skipB > 0) {
+//         skipB--;
+//         b--;
+//       } else {
+//         break;
+//       }
+//     }
+//     if (s[a] !== t[b]) {
+//       console.log("s[a] t[b]", s[a], t[b]);
+//       return false;
+//     }
+//     a--;
+//     b--;
+//   }
+
+//   return true;
+// }
+// console.log(backspaceCompare(s, t));
