@@ -1442,51 +1442,30 @@
 ///////////////////////////// Boats to Save People
 // peopleWeights = [4, 3, 2, 2, 1]; kg
 // boatWeightLimit = 3; kg
-// maxPeoplePerBoat = 2;
+// maxPeoplePerBoat = 2; constant
 // so output will be 3 boat
 
 // You are given:
 // people → an array containing the weight of each person.
 // limit → the maximum total weight a boat can carry.
-// Each boat can carry at most 2 people.
+// Each boat can carry at most 2 people. constant
 
-// const peopleWeights = [4, 3, 2, 2, 1];
+// const peopleWeights = [1, 2, 2, 3];
 // const boatWeightLimit = 3;
-// const maxPeoplePerBoat = 2;
 
-// function savePeople() {
+// function savePeople(peopleWeights, boatWeightLimit) {
 //   let boatNumber = 0;
-//   let totalWeightInCurrentBoat = 0;
-//   for (let i = 0; i < peopleWeights.length; i++) {
-//     const curentPersonWeight = peopleWeights[i];
-//     // if boatWeightLimit cross curentPersonWeight than ignore
-//     if (curentPersonWeight > boatWeightLimit) {
-//       continue;
-//     }
-//     totalWeightInCurrentBoat += curentPersonWeight;
-//     // check can we add more person in this boat ? and also check that weight capacity limit reach or not
+//   let low = 0;
+//   let high = peopleWeights.length - 1;
 
-//     if (curentPersonWeight) {
+//   while (high >= low) {
+//     const sumOfHighAndLow = peopleWeights[high] + peopleWeights[low];
+//     if (sumOfHighAndLow <= boatWeightLimit) {
+//       low++;
 //     }
+//     boatNumber++;
+//     high--;
 //   }
+//   return boatNumber;
 // }
-// console.log(savePeople());
-
-// const peopleWeights = [1, 2, 2, 3, 4];
-// const boatWeightLimit = 3;
-// const maxPeoplePerBoat = 2;
-
-// function a() {
-//   let left = 0;
-//   let right = peopleWeights.length - 1;
-
-//   while (right > left) {
-//     //ignore over weight
-//     if (peopleWeights[right] > boatWeightLimit) {
-//       right--;
-//       continue
-//     }
-//     if()
-//   }
-// }
-// console.log(a());
+// console.log(savePeople(peopleWeights, boatWeightLimit));
