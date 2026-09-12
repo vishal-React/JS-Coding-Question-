@@ -1450,10 +1450,71 @@
 // limit → the maximum total weight a boat can carry.
 // Each boat can carry at most 2 people. constant
 
+// APPROACH 1: SORTING + TWO POINTERS
+//
+// First, sort the people by weight.
+// Then use two pointers:
+// - light -> lightest person
+// - heavy -> heaviest person
+//
+// The heaviest person must always take a boat.
+// We try to pair them with the lightest person.
+//
+// If light + heavy <= boatWeightLimit:
+//     both can share a boat, so move both pointers.
+//
+// Otherwise:
+//     the heaviest person must go alone, so move only heavy.
+//
+// Each boat is counted once.
+//
+// Time Complexity: O(n log n) because of sorting
+// Space Complexity: O(1) extra space (ignoring the sorting implementation)
+
+// APPROACH 2: FREQUENCY COUNTING + TWO POINTERS
+//
+// Instead of sorting the array, store how many people
+// have each weight in an object.
+//
+// Example:
+// people = [2, 3, 2, 4]
+//
+// weightCount = {
+//   2: 2,
+//   3: 1,
+//   4: 1
+// }
+//
+// Here, light and heavy are WEIGHT VALUES,
+// not array indexes.
+//
+// - light -> lightest available weight
+// - heavy -> heaviest available weight
+//
+// The heaviest person always gets a boat.
+//
+// Then check if the lightest person can share that boat:
+//
+// If light + heavy <= boatWeightLimit:
+//     use both people
+//
+// Otherwise:
+//     heaviest person goes alone.
+//
+// After using a person, decrease their frequency.
+//
+// Time Complexity: O(n + W)
+// Space Complexity: O(W)
+//
+// W = boatWeightLimit / range of possible weights.
+//
+// This avoids sorting, but is only practical when the
+// weight range is reasonably small.
+
 // const peopleWeights = [1, 2, 2, 3];
 // const boatWeightLimit = 3;
-
 // function savePeople(peopleWeights, boatWeightLimit) {
+//   peopleWeights.sort((a, b) => a - b);
 //   let boatNumber = 0;
 //   let low = 0;
 //   let high = peopleWeights.length - 1;
