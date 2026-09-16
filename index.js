@@ -1530,3 +1530,65 @@
 //   return boatNumber;
 // }
 // console.log(savePeople(peopleWeights, boatWeightLimit));
+
+////////////////////////// Trapping Rain Water two pointers
+// APPROACH: TWO POINTERS
+//
+// Use two pointers:
+//
+// - left  -> start
+// - right -> end
+//
+// Also maintain:
+// - leftMax  -> maximum wall seen from left
+// - rightMax -> maximum wall seen from right
+//
+// Compare the current left and right walls.
+//
+// If height[left] < height[right]:
+//
+//     Process left side.
+//     Update leftMax if needed.
+//     Water = leftMax - height[left].
+//     Move left++.
+//
+// Otherwise:
+//
+//     Process right side.
+//     Update rightMax if needed.
+//     Water = rightMax - height[right].
+//     Move right--.
+//
+// Why?
+//
+// Water is limited by the shorter boundary.
+// So we process the shorter current side.
+//
+// Each position is processed once.
+//
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+
+// const height = [2, 4, 10, 0, 10, 4, 2];
+// let left = 0;
+// let right = height.length - 1;
+// let leftMax = height[0];
+// let rightMax = height[height.length - 1];
+// let count = 0;
+
+// while (left < right) {
+//   if (height[left] < height[right]) {
+//     if (height[left] > leftMax) {
+//       leftMax = height[left];
+//     }
+//     count += leftMax - height[left];
+//     left++;
+//   } else {
+//     if (height[right] > rightMax) {
+//       rightMax = height[right];
+//     }
+//     count += rightMax - height[right];
+//     right--;
+//   }
+// }
+// console.log("count", count);
