@@ -1592,3 +1592,78 @@
 //   }
 // }
 // console.log("count", count);
+
+////////////////////////// Maximum Sum Subarray of Size K Sliding Window
+// Approach
+
+// Instead of calculating every window's sum from scratch:
+
+// Calculate the sum of the first k elements.
+// Store it as maxSum.
+// Slide the window one element at a time.
+// Add the new element entering the window.
+// Remove the old element leaving the window.
+// Update maxSum.
+
+// const arr = [2, 1, 5, 1, 3, 2];
+// const K = 3;
+
+// 1 way brute force
+// let maxSumSubArray = 0;
+// for (let i = 0; i <= arr.length - K; i++) {
+//   let currSum = 0;
+//   for (let j = i; j < K + i; j++) {
+//     currSum += arr[j];
+//   }
+//   if (maxSumSubArray < currSum) {
+//     maxSumSubArray = currSum;
+//   }
+// }
+// console.log("maxSumSubArray", maxSumSubArray);
+
+// 2 way Sliding Window
+// const arr = [2, 1, 5, 1, 3, 2];
+// const K = 3;
+
+// let maxSumSubArray = 0;
+// let currSum = 0;
+
+// // Calculate the sum of the first window of size K
+// for (let i = 0; i < K; i++) {
+//   maxSumSubArray += arr[i];
+//   currSum += arr[i];
+// }
+// // Slide the window:
+// // Remove the element leaving the window,
+// // add the new element entering the window,
+// // then compare the current sum with the maximum sum.
+// for (let j = K; j < arr.length; j++) {
+//   const currElement = arr[j];
+//   currSum = currSum - arr[j - K] + currElement;
+//   if (currSum > maxSumSubArray) {
+//     maxSumSubArray = currSum;
+//   }
+// }
+// console.log("maxSumSubArray", maxSumSubArray);
+
+// 3 way in one loop with sliding window approach
+// const nums = [1, 12, -5];
+// const k = 3;
+
+// let maxSumSubArray = -Infinity;
+// let currSum = 0;
+
+// for (let i = 0; i < nums.length; i++) {
+//   currSum += nums[i];
+
+//   if (i >= k) {
+//     currSum -= nums[i - k];
+//   }
+
+//   // Only compare when we have a complete window of size k
+//   if (i >= k - 1 && currSum > maxSumSubArray) {
+//     maxSumSubArray = currSum;
+//   }
+// }
+
+// console.log("maxSumSubArray", maxSumSubArray);
