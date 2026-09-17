@@ -1667,3 +1667,71 @@
 // }
 
 // console.log("maxSumSubArray", maxSumSubArray);
+
+/////////////////////// Longest Substring Without Repeating Characters sliding window + hasmap
+
+// Approach: Sliding Window + Two Pointers + HashMap/Object
+// Maintain a window using two pointers:
+// left → start of window
+// right → current/end of window
+// Use HashMap/Object to store the LAST INDEX of each character.
+// Move right forward:
+// If the character is not present, add its index to the object.
+// Calculate the current window length.
+// Update the maximum length.
+// If the character is already present:
+// There is a duplicate.
+// Get the previous index of that character.
+// Jump left directly to previousIndex + 1.
+// Use Math.max() so left never moves backward.
+// Update the character's index to the current right index.
+// No need to remove characters from the object.
+// For every valid window:
+// current length = right - left + 1
+// Keep the largest length found:
+// max length = maximum(current length, max length)
+
+// Time: O(n)
+// Space: O(k)
+
+// 1 way while loop
+// const str = "abcdfahkuipwz";
+// const obj = {};
+// let left = 0;
+// let right = 0;
+// let maxSubstringNum = 0;
+// let currMaxStringNum = 0;
+
+// while (right < str.length) {
+//   if (obj[str[right]]) {
+//     obj[str[left]]--;
+//     left++;
+//   } else {
+//     obj[str[right]] = 1;
+//     currMaxStringNum = right - left + 1;
+//     maxSubstringNum = Math.max(currMaxStringNum, maxSubstringNum);
+//     right++;
+//   }
+// }
+// console.log("maxSubstringNum", maxSubstringNum);
+
+// 2 way for loop jump direct left instead one by one moving
+// const str = "abba";
+
+// const obj = {};
+// let left = 0;
+// let maxLength = 0;
+
+// for (let right = 0; right < str.length; right++) {
+//   const char = str[right];
+//   if (obj[char] !== undefined) {
+//     left = Math.max(left, obj[char] + 1);
+//   }
+
+//   obj[char] = right;
+//   const currentLength = right - left + 1;
+
+//   maxLength = Math.max(maxLength, currentLength);
+// }
+
+// console.log(maxLength);
