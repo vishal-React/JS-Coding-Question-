@@ -1795,3 +1795,44 @@
 // }
 // console.log("obj", obj);
 // console.log("MaxSubStringReplacement", MaxSubStringReplacement);
+
+////////////////////////////////////// Permutation in String sliding window and freq
+// s1 = "ab"
+// s2 = "eidbaooo"
+
+// Output: true
+
+// const s1 = "ab";
+// const s2 = "aaab";
+
+// function permutaion(s1, s2) {
+//   const obj = {};
+//   const windowFreq = {};
+
+//   for (let i = 0; i < s1.length - 1; i++) {
+//     obj[s1[i]] = (obj[s1[i]] || 0) + 1;
+//     windowFreq[s2[i]] = (windowFreq[s2[i]] || 0) + 1;
+//   }
+
+//   let left = 0;
+//   for (let right = s1.length - 1; right < s2.length; right++) {
+//     // 1 first add cahr in windowFreq
+//     windowFreq[s2[right]] = (windowFreq[s2[right]] || 0) + 1;
+
+//     // 2 check wether all char are match the exact count or not
+//     let isMatch = true;
+//     for (const char in obj) {
+//       if (obj[char] !== windowFreq[char]) {
+//         isMatch = false;
+//         break;
+//       }
+//     }
+//     if (isMatch) {
+//       return true;
+//     }
+//     windowFreq[s2[left]]--;
+//     left++;
+//   }
+//   return false;
+// }
+// console.log("permutaion ", permutaion(s1, s2));
