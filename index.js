@@ -1735,3 +1735,63 @@
 // }
 
 // console.log(maxLength);
+
+///////////////////// Longest Repeating Character Replacement sliding window
+
+// Approach: Sliding Window + Two Pointers + HashMap/Object
+// Maintain a window using two pointers:
+// left → start of window
+// right → current/end of window
+// Use HashMap/Object to store the frequency of each character.
+// Move right forward:
+// Add the current character to the object.
+// Calculate the current window length.
+// Find the maximum frequency character in the window.
+// Required replacements:
+// currentWindow - maxFrequency
+// If required replacements <= k:
+// The current window is valid.
+// If required replacements > k:
+// The window is invalid.
+// Move left forward and decrease the frequency of s[left].
+// Keep shrinking until the window becomes valid.
+// For every valid window:
+// Update the maximum window length.
+// current length = right - left + 1
+// Keep the largest length:
+// maxLength = Math.max(currentLength, maxLength)
+// Key formula:
+// replacements = windowLength - maxFrequency
+
+// Time: O(n * k) in this implementation
+// Space: O(k)
+
+// const s = "ABABBDssss";
+// const k = 2;
+
+// let left = 0;
+// let obj = {};
+// let maxfreqCurrentWindow = 0;
+// let MaxSubStringReplacement = 0;
+
+// for (let right = 0; right < s.length; right++) {
+//   const currChar = s[right];
+//   obj[currChar] = (obj[currChar] || 0) + 1;
+
+//   let currentWindow = right - left + 1;
+//   maxfreqCurrentWindow = Math.max(...Object.values(obj));
+//   let replaceableChar = currentWindow - maxfreqCurrentWindow;
+
+//   while (replaceableChar > k) {
+//     obj[s[left]]--;
+//     left++;
+
+//     currentWindow = right - left + 1;
+//     maxfreqCurrentWindow = Math.max(...Object.values(obj));
+//     replaceableChar = currentWindow - maxfreqCurrentWindow;
+//   }
+
+//   MaxSubStringReplacement = Math.max(MaxSubStringReplacement, currentWindow);
+// }
+// console.log("obj", obj);
+// console.log("MaxSubStringReplacement", MaxSubStringReplacement);
