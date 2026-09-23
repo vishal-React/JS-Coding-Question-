@@ -1735,6 +1735,7 @@
 // }
 
 // console.log(maxLength);
+// left = Math.max(left, obj[char] + 1); why math.max here cause left can only move forward, never backward. see this example "abba" do dry run you undeerstand that
 
 ///////////////////// Longest Repeating Character Replacement sliding window
 
@@ -1836,3 +1837,26 @@
 //   return false;
 // }
 // console.log("permutaion ", permutaion(s1, s2));
+
+/////////////////// Minimum Size Subarray Sum sliding window
+// const nums = [1, 2, 3];
+// const target = 3;
+
+// let left = 0;
+
+// let windowAddition = 0;
+// let minWindowSize = 0;
+
+// for (let right = 0; right < nums.length; right++) {
+//   windowAddition += nums[right];
+
+//   while (windowAddition >= target) {
+//     let currWindowSize = right - left + 1;
+//     if (minWindowSize === 0 || minWindowSize > currWindowSize) {
+//       minWindowSize = currWindowSize;
+//     }
+//     windowAddition -= nums[left];
+//     left++;
+//   }
+// }
+// console.log("minWindowSize", minWindowSize);
