@@ -1804,16 +1804,21 @@
 // Output: true
 
 // const s1 = "ab";
-// const s2 = "aaab";
+// const s2 = "acb";
 
 // function permutaion(s1, s2) {
 //   const obj = {};
 //   const windowFreq = {};
 
+//   for (let char of s1) {
+//     obj[char] = (obj[char] || 0) + 1;
+//   }
+//   console.log("obj", obj);
+
 //   for (let i = 0; i < s1.length - 1; i++) {
-//     obj[s1[i]] = (obj[s1[i]] || 0) + 1;
 //     windowFreq[s2[i]] = (windowFreq[s2[i]] || 0) + 1;
 //   }
+//   console.log("windowFreq", windowFreq);
 
 //   let left = 0;
 //   for (let right = s1.length - 1; right < s2.length; right++) {
