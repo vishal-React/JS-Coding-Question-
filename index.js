@@ -1860,3 +1860,146 @@
 //   }
 // }
 // console.log("minWindowSize", minWindowSize);
+
+/////////////////////////// Minimum Window Substring Sliding Window
+
+// Approach 1: Sliding Window + HashMap
+
+// Store frequency of characters in t.
+
+// Move right:
+// → Add s[right] to window.
+// Store frequency of characters in current window.
+
+// Check if window is valid:
+// → Every character in t must have required frequency.
+
+// Validity is checked by:
+// → Looping through all characters in targetFreq.
+
+//  If valid:
+// → Update minimum window.
+// → Move left and shrink the window.
+
+// Keep shrinking while window is valid.
+
+// When invalid:
+// → Move right forward.
+
+// Time: O(n * k)
+// Space: O(k)
+
+// Approach 2: Sliding Window + HashMap + required Counter
+
+// Store frequency of characters in t.
+
+// required = t.length
+// required = number of required characters still missing.
+
+// Move right:
+// → Add s[right].
+// Store frequency of characters in current window.
+// → If it satisfies a required frequency:
+//   required--
+
+// required === 0:
+// → Window is valid.
+// → Update minimum window.
+// → Shrink from left.
+
+// Before removing s[left]:
+// → If it is the last required occurrence:
+//   required++
+
+// Then remove s[left] and move left.
+
+// Validity is checked by:
+// → required === 0
+
+// Time: O(n + m)
+// Space: O(k)
+
+// const s = "AABACABCC";
+// const t = "ABC";
+
+// function minimumWindowSubstring(s, t) {
+//   if (t.length > s.length) return "";
+
+//   function validWindow(objTargetFreq, currWindowFreq) {
+//     for (const key in objTargetFreq) {
+//       if (objTargetFreq[key] > currWindowFreq[key] || !currWindowFreq[key]) {
+//         return false;
+//       }
+//     }
+//     return true;
+//   }
+
+//   const objTargetFreq = {};
+//   for (const char of t) {
+//     objTargetFreq[char] = (objTargetFreq[char] || 0) + 1;
+//   }
+
+//   let left = 0;
+//   let currWindowFreq = {};
+//   let minimumWindowChar = "";
+
+//   for (let right = 0; right < s.length; right++) {
+//     currWindowFreq[s[right]] = (currWindowFreq[s[right]] || 0) + 1;
+//     while (validWindow(objTargetFreq, currWindowFreq)) {
+//       if (
+//         !minimumWindowChar.length ||
+//         minimumWindowChar.length > right - left + 1
+//       ) {
+//         minimumWindowChar = s.slice(left, right + 1);
+//       }
+//       currWindowFreq[s[left]]--;
+//       left++;
+//     }
+//   }
+//   return minimumWindowChar;
+// }
+
+// function minimumWindowSubstring(s, t) {
+//   if (t.length > s.length) return "";
+//   const objTargetFreq = {};
+//   for (const char of t) {
+//     objTargetFreq[char] = (objTargetFreq[char] || 0) + 1;
+//   }
+
+//   let left = 0;
+//   let currWindowFreq = {};
+//   let minimumWindowChar = "";
+//   let required = t.length;
+
+//   for (let right = 0; right < s.length; right++) {
+//     currWindowFreq[s[right]] = (currWindowFreq[s[right]] || 0) + 1;
+//     // if we found valid char equals to or greater than objTargetFreq than we can do required minus
+//     if (
+//       objTargetFreq[s[right]] &&
+//       objTargetFreq[s[right]] >= currWindowFreq[s[right]]
+//     ) {
+//       required--;
+//     }
+//     while (required === 0) {
+//       // this is for minimumWindowChar
+//       if (
+//         !minimumWindowChar.length ||
+//         minimumWindowChar.length > right - left + 1
+//       ) {
+//         minimumWindowChar = s.slice(left, right + 1);
+//       }
+
+//       // when window is valid we have to shrink that window untill it become invalid and we have to find next smallest valid window. before remove left char we have to increase required if we remove valid char from currwindow with correct freq
+//       if (
+//         objTargetFreq[s[left]] &&
+//         objTargetFreq[s[left]] === currWindowFreq[s[left]]
+//       ) {
+//         required++;
+//       }
+//       currWindowFreq[s[left]]--;
+//       left++;
+//     }
+//   }
+//   return minimumWindowChar;
+// }
+// console.log("minimumWindowSubstring", minimumWindowSubstring(s, t));
