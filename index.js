@@ -2084,3 +2084,61 @@
 //   maxWindowSize = Math.max(maxWindowSize, right - left + 1);
 // }
 // console.log("maxWindowSize", maxWindowSize);
+
+////////////////////////////    713. Subarray Product Less Than K sliding window
+// Input: nums = [10,5,2,6], k = 100
+// Output: 8
+// Explanation: The 8 subarrays that have product less than 100 are:
+// [10], [5], [2], [6], [10, 5], [5, 2], [2, 6], [5, 2, 6]
+// Note that [10, 5, 2] is not included as the product of 100 is not strictly less than k.
+
+// for count i will do like this
+// [10, 5, 2, 6]
+// 10  valid product no substring so count 1
+// 10 5 valid product with substring so first is 5 than 10 5 so count will 3 here
+// 10 5 2 this is not valid so we do shrink after that we get 5 2 now we count with substring is 2 and 5 2 so count become 5 here
+// 5 2 6 valid product with subsstring is now 6 , 2 6 , 5 2 6 so count become 8 here
+
+// const nums = [7, 2, 7, 8, 6];
+// const k = 1;
+
+// // 1 way brute force check that product is valid or not from start 
+// let count = 0;
+// let left = 0;
+// let product = 1;
+
+// for (let right = 0; right < nums.length; right++) {
+//   product *= nums[right];
+
+//   while (product >= k && left <= right) {
+//     left++;
+//     product = 1;
+//     for (let i = left; i <= right; i++) {
+//       product *= nums[i];
+//     }
+//     console.log("product", product);
+//   }
+//   let currWindow = right - left + 1;
+//   count += currWindow;
+// }
+// console.log("count", count);
+
+// 2 way we can do divide the product for found valid product to shrink from left
+// const nums = [7, 2, 7, 8, 6];
+// const k = 1;
+
+// let count = 0;
+// let left = 0;
+// let product = 1;
+
+// for (let right = 0; right < nums.length; right++) {
+//   product *= nums[right];
+
+//   while (product >= k && left <= right) {
+//     product = product / nums[left];
+//     left++;
+//   }
+//   let currWindow = right - left + 1;
+//   count += currWindow;
+// }
+// console.log("count", count);
