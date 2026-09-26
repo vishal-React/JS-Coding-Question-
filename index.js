@@ -2035,3 +2035,52 @@
 // }
 // console.log('left', left)
 // console.log("maximumWindowSize", maximumWindowSize);
+
+/////////////////////////////  Max Consecutive Ones III sliding window
+
+// const nums = [0];
+// const k = 0;
+
+// 1 way with hashmap
+// let left = 0;
+// let maxWindowSize = 0;
+// const currWindowFreq = {};
+
+// for (let right = 0; right < nums.length; right++) {
+//   currWindowFreq[nums[right]] = (currWindowFreq[nums[right]] || 0) + 1;
+
+//   let currWindowSize = right - left + 1;
+//   let replaceableZeros = currWindowSize - (currWindowFreq[1] || 0);
+
+//   while (replaceableZeros > k) {
+//     currWindowFreq[nums[left]]--;
+//     left++;
+//     currWindowSize = right - left + 1;
+//     replaceableZeros = currWindowSize - (currWindowFreq[1] || 0);
+//   }
+
+//   maxWindowSize = Math.max(maxWindowSize, right - left + 1);
+// }
+// console.log("maxWindowSize", maxWindowSize);
+
+// 2 way with store count of zeros
+// const nums = [0, 0, 0, 0];
+// const k = 0;
+
+// let left = 0;
+// let maxWindowSize = 0;
+// let zeroCount = 0;
+
+// for (let right = 0; right < nums.length; right++) {
+//   if (nums[right] === 0) {
+//     zeroCount++;
+//   }
+//   while (zeroCount > k) {
+//     if (nums[left] === 0) {
+//       zeroCount--;
+//     }
+//     left++;
+//   }
+//   maxWindowSize = Math.max(maxWindowSize, right - left + 1);
+// }
+// console.log("maxWindowSize", maxWindowSize);
