@@ -2102,7 +2102,7 @@
 // const nums = [7, 2, 7, 8, 6];
 // const k = 1;
 
-// // 1 way brute force check that product is valid or not from start 
+// // 1 way brute force check that product is valid or not from start
 // let count = 0;
 // let left = 0;
 // let product = 1;
@@ -2142,3 +2142,55 @@
 //   count += currWindow;
 // }
 // console.log("count", count);
+
+//////////////////////////////   239. Sliding Window Maximum sliding window 
+// const nums = [1, 3, -1, 5, 3, 6, 7];
+// const k = 3;
+
+// // 1 way brute force
+// let left = 0;
+// let res = [];
+
+// for (let right = k - 1; right < nums.length; right++) {
+//   console.log("right", right);
+//   let maxNum = -Infinity;
+//   for (let j = left; j <= right; j++) {
+//     maxNum = Math.max(maxNum, nums[j]);
+//   }
+//   res.push(maxNum);
+//   left++;
+// }
+// console.log("res", res);
+
+// [9, 4, 5, 7] pass this case
+// [2,5,4,3] pass this case
+// [2,5,4,6] pass this case
+// [5, 4, 3, 7] pass this case
+// [5,2,5,3]
+// 2 way  sliding window and monotonic deque
+// const nums = [5, 5, 2, 3];
+// const k = 3;
+
+// let left = 0;
+// const res = [];
+// const deque = [];
+
+// for (let right = 0; right < nums.length; right++) {
+//   while (deque.length && nums[deque[deque.length - 1]] < nums[right]) {
+//     deque.pop();
+//   }
+//   deque.push(right);
+
+//   if (right - left + 1 > k) {
+//     if (left === deque[0]) {
+//       deque.shift();
+//     }
+//     left++;
+//   }
+
+//   const currWindow = right - left + 1;
+//   if (currWindow === k) {
+//     res.push(nums[deque[0]]);
+//   }
+// }
+// console.log("res", res);
