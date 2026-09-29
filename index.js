@@ -2143,7 +2143,7 @@
 // }
 // console.log("count", count);
 
-//////////////////////////////   239. Sliding Window Maximum sliding window 
+//////////////////////////////   239. Sliding Window Maximum sliding window
 // const nums = [1, 3, -1, 5, 3, 6, 7];
 // const k = 3;
 
@@ -2194,3 +2194,48 @@
 //   }
 // }
 // console.log("res", res);
+
+//////////////////////////////   242. Valid Anagram hashmap
+// Input: s = "anagram", t = "nagaram"
+// Output: true
+
+// 1 way count freq both and compare
+// const s = "anagram";
+// const t = "nagaram";
+
+// function validAnagram() {
+//   if (s.length !== t.length) return false;
+//   const sFreq = {};
+//   const tFreq = {};
+
+//   for (let i = 0; i < s.length; i++) {
+//     sFreq[s[i]] = (sFreq[s[i]] || 0) + 1;
+//     tFreq[t[i]] = (tFreq[t[i]] || 0) + 1;
+//   }
+
+//   for (const key in sFreq) {
+//     if (sFreq[key] !== tFreq[key]) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
+// console.log("validAnagram", validAnagram());
+
+// 2 way maintain one freq and do one plus and one negative if in last all 0 mean valid
+// const s = "ab";
+// const t = "ba";
+
+// function validAnagram() {
+//   if (s.length !== t.length) return false;
+//   const obj = {};
+
+//   for (let i = 0; i < s.length; i++) {
+//     obj[s[i]] = (obj[s[i]] || 0) + 1;
+//     obj[t[i]] = (obj[t[i]] || 0) - 1;
+//     if (obj[s[i]] === 0) delete obj[s[i]];
+//     if (obj[t[i]] === 0) delete obj[t[i]];
+//   }
+//   return Object.keys(obj).length === 0;
+// }
+// console.log("validAnagram", validAnagram());
