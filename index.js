@@ -2239,3 +2239,77 @@
 //   return Object.keys(obj).length === 0;
 // }
 // console.log("validAnagram", validAnagram());
+
+////////////////////////// #49 — Group Anagrams HashMap / Frequency
+
+// input ["eat", "tea", "tan", "ate", "nat", "bat"];
+// output [["eat", "tea", "ate"], ["tan", "nat"], ["bat"]];
+
+// 1 way do sort every char and assign in object like this
+// data structure
+// {
+//   "aet":["eat", "tea","ate"],
+//   "ant":["tan","nat"],
+//   "abt":["bat"]
+// }
+// const arr = ["eat", "tea", "tan", "ate", "nat", "bat"];
+
+// const obj = {};
+
+// for (let i = 0; i < arr.length; i++) {
+//   const element = arr[i];
+//   const sortChar = element.split("").sort().join("");
+
+//   (obj[sortChar] ||= []).push(element);
+// }
+// console.log("obj", obj);
+// console.log("Object.values(obj)", Object.values(obj));
+
+// 2 way by 26 char alphabets in array store freq
+
+// Character Frequency Using a 26-Element Array
+// For lowercase English letters, the ASCII/Unicode values are:
+
+// a → 97
+// b → 98
+// c → 99
+// ...
+// z → 122
+
+// We can create a fixed array of size 26 to store the frequency of each character:
+
+// const charSizeArr = new Array(26).fill(0);
+// The idea is to map each character to its correct array index.
+// We can get the character's ASCII/Unicode value in JavaScript using:
+// char.charCodeAt()
+// To get the index, subtract the value of "a":
+// const index = char.charCodeAt() - "a".charCodeAt();
+
+// For example:
+// a → 97 - 97 = 0
+// b → 98 - 97 = 1
+// c → 99 - 97 = 2
+// ...
+// z → 122 - 97 = 25
+
+// Therefore, every character maps to an index from 0 to 25.
+
+// const arr = ["eat", "tea", "tan", "ate", "nat", "bat"];
+
+// function alphabetsFreqFunc(str) {
+//   const alphabetsFreq = new Array(26).fill(0);
+//   for (const char of str) {
+//     const indexForIncrease = char.charCodeAt() - "a".charCodeAt();
+//     alphabetsFreq[indexForIncrease]++;
+//   }
+//   return alphabetsFreq;
+// }
+// const obj = {};
+
+// for (const word of arr) {
+//   const key = alphabetsFreqFunc(word);
+
+//   (obj[key] ||= []).push(word);
+// }
+// console.log("obj", obj);
+// console.log("Object.values(obj)", Object.values(obj));
