@@ -2313,3 +2313,65 @@
 // }
 // console.log("obj", obj);
 // console.log("Object.values(obj)", Object.values(obj));
+
+///////////////////////////  347. Top K Frequent Elements
+
+// Input: ((nums = [1, 1, 1, 2, 2, 3]), (k = 2));
+// Output: [1, 2];
+// const nums = [1, 1, 1, 1];
+// const k = 2;
+
+// 1 way
+// const obj = {};
+// for (const num of nums) {
+//   obj[num] = (obj[num] || 0) + 1;
+// }
+// const res = Object.entries(obj)
+//   .sort(([, a], [, b]) => a - b)
+//   .slice(-k)
+//   .map(([key]) => Number(key));
+// console.log("obj", res);
+
+// 2 way
+// obj { '1': 4, '2': 4, '3': 2 }
+// { like this but in array instead of object
+//   4: [1, 2],
+//   2: [3]
+// }
+
+// First, create a frequency map: number → count.
+// Create a bucket array where index = frequency.
+// Store numbers with the same frequency together.
+// Traverse the bucket array from highest frequency to lowest.
+// Add elements to the result until k elements are collected.
+
+// const nums = [1, 1, 2, 2, 3, 3];
+// const k = 2;
+
+// function topKFrequent() {
+//   // Count the frequency of each number
+//   const obj = {};
+//   for (const num of nums) {
+//     obj[num] = (obj[num] || 0) + 1;
+//   }
+
+//   // Group numbers by their frequency (frequency = index)
+//   const arr = new Array(nums.length + 1);
+//   for (const key in obj) {
+//     const objValue = obj[key];
+//     (arr[objValue] ||= []).push(key);
+//   }
+
+//   // Traverse from highest frequency and collect k numbers
+//   const res = [];
+//   for (let i = arr.length - 1; i > 0; i--) {
+//     if (arr[i]) {
+//       for (const element of arr[i]) {
+//         res.push(Number(element));
+//         if (res.length === k) return res;
+//       }
+//     }
+//   }
+//   return res;
+// }
+// console.log("topKFrequent", topKFrequent());
