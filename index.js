@@ -2375,3 +2375,33 @@
 //   return res;
 // }
 // console.log("topKFrequent", topKFrequent());
+
+/////////////////////////////////  128. Longest Consecutive Sequence hasMap
+// Input: nums = [0,3,7,2,5,8,4,6,0,1]
+// Output: 9 cause 0 1 2 3 4 5 6 7 8 and its length is 9
+
+// Longest Consecutive Sequence — Approach
+// Put all numbers in a Set for fast lookup.
+// For each unique number, check if num - 1 exists.
+// If it exists → not a start, skip it.
+// If it doesn't → start of sequence.
+// Keep checking num + 1, num + 2... and count.
+// Store the maximum count.
+
+// Key idea: Only start counting from numbers whose predecessor doesn't exist.
+
+// const nums = [9, 8, 0];
+
+// const numsSet = new Set(nums);
+// let maxCount = 0;
+
+// for (const num of numsSet) {
+//   if (numsSet.has(num - 1)) continue;
+//   let count = 1;
+//   let copyNum = num;
+//   while (numsSet.has(++copyNum)) {
+//     count++;
+//   }
+//   maxCount = Math.max(maxCount, count);
+// }
+// console.log("maxCount", maxCount);
