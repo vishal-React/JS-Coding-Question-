@@ -2453,7 +2453,7 @@
 // Input: nums1 = [1,2,2,1], nums2 = [2,2]
 // Output: [2]
 
-// 1 way with set 
+// 1 way with set
 // const nums1 = [1, 2, 2, 1];
 // const nums2 = [2, 2];
 
@@ -2467,3 +2467,54 @@
 //   }
 // }
 // console.log("intersectionObj", [...intersectionSet]);
+
+//////////////////////  389. Find the Difference hash map
+// Input: s = "abcd", t = "abcde"
+// Output: "e"
+// Explanation: 'e' is the letter that was added.
+
+// 1 way both freq and than copmare
+// const s = "a";
+// const t = "aa";
+
+// function findDiffrence() {
+//   const objS = {};
+//   const objT = {};
+
+//   for (const char of s) {
+//     objS[char] = (objS[char] || 0) + 1;
+//   }
+
+//   for (const char of t) {
+//     objT[char] = (objT[char] || 0) + 1;
+//   }
+
+//   for (const key of t) {
+//     if (objS[key] !== objT[key]) return key;
+//   }
+// }
+// console.log(findDiffrence());
+
+// 2 way with one obj and do add and subtract the count of char 
+// const s = "abcd";
+// const t = "abcde";
+// function findDiffrence() {
+//   const obj = {};
+
+//   // this loop for add and subtract the char add s and remove t for get -1 in end what ever letter are missing
+//   for (let i = 0; i < t.length; i++) {
+//     if (s[i]) {
+//       obj[s[i]] = (obj[s[i]] || 0) + 1;
+//     }
+//     obj[t[i]] = (obj[t[i]] || 0) - 1;
+//   }
+//   console.log("obj", obj);
+
+//   // find the -1 key
+//   for (const key in obj) {
+//     if (obj[key] === -1) return key;
+//   }
+// }
+// console.log(findDiffrence());
+
+/// we can soilve this by ascii value like store char in array of 26 and do comapre which is
