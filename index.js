@@ -2405,3 +2405,46 @@
 //   maxCount = Math.max(maxCount, count);
 // }
 // console.log("maxCount", maxCount);
+
+//////////////////////////    217. Contains Duplicate hash map
+
+// Input: nums = [1,2,3,1]
+// Output: true
+
+// 1 way  hash map
+// const nums = [1, 2, 3];
+// function containDuplicates() {
+//   const obj = {};
+//   for (const num of nums) {
+//     if (obj[num] !== undefined) {
+//       return true;
+//     }
+//     obj[num] = (obj[num] || 0) + 1;
+//   }
+//   return false;
+// }
+
+// console.log("containDuplicxates()", containDuplicates());
+
+// 2 way with index of
+// const nums = [1, 2, 3, 1];
+// for (let i = 0; i < nums.length; i++) {
+//   if (i !== nums.indexOf(nums[i])) {
+//     return true;
+//   }
+// }
+// return false;
+
+// 3 way new set
+// const nums = [1, 2, 3];
+// function containDuplicates() {
+//   const uniqueNums = new Set();
+
+//   for (const num of nums) {
+//     if (uniqueNums.has(num)) return true;
+
+//     uniqueNums.add(num);
+//   }
+//   return false;
+// }
+// console.log("containDuplicxates()", containDuplicates());
