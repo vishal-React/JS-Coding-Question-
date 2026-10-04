@@ -2448,3 +2448,22 @@
 //   return false;
 // }
 // console.log("containDuplicxates()", containDuplicates());
+
+///////////////////////  349. Intersection of Two Arrays hash map
+// Input: nums1 = [1,2,2,1], nums2 = [2,2]
+// Output: [2]
+
+// 1 way with set 
+// const nums1 = [1, 2, 2, 1];
+// const nums2 = [2, 2];
+
+// const set = new Set(nums2); // unique nums2
+// const intersectionSet = new Set();
+
+// for (const num of nums1) {
+//   if (set.has(num)) {
+//     // check that nums1 num are in nums2 set or not if yes add in intersectionSet
+//     intersectionSet.add(num);
+//   }
+// }
+// console.log("intersectionObj", [...intersectionSet]);
