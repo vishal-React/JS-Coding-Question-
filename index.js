@@ -2495,7 +2495,7 @@
 // }
 // console.log(findDiffrence());
 
-// 2 way with one obj and do add and subtract the count of char 
+// 2 way with one obj and do add and subtract the count of char
 // const s = "abcd";
 // const t = "abcde";
 // function findDiffrence() {
@@ -2517,4 +2517,29 @@
 // }
 // console.log(findDiffrence());
 
-/// we can soilve this by ascii value like store char in array of 26 and do comapre which is
+////////////////////////  205. Isomorphic Strings hashmap
+// Input: ((s = "paper"), (t = "title"));
+// Output: true;
+
+// const s = "badc";
+// const t = "baba";
+
+// function isomorphicStr() {
+//   if (s.length !== t.length) return false;
+//   s;
+//   const sMap = new Map();
+//   const tMap = new Map();
+//   for (let i = 0; i < s.length; i++) {
+//     if (
+//       (sMap.has(s[i]) && sMap.get(s[i]) !== t[i]) ||
+//       (tMap.has(t[i]) && tMap.get(t[i]) !== s[i])
+//     ) {
+//       return false;
+//     }
+
+//     sMap.set(s[i], t[i]);
+//     tMap.set(t[i], s[i]);
+//   }
+//   return true;
+// }
+// console.log("isomorphicStr", isomorphicStr());
