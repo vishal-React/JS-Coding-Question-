@@ -2543,3 +2543,32 @@
 //   return true;
 // }
 // console.log("isomorphicStr", isomorphicStr());
+
+///////////////////////////  383. Ransom Note hashmap
+
+// Input: ransomNote = "a", magazine = "b"
+// Output: false
+// ransomNote char need all char to be in magazine if not return false.
+
+// 1 way
+// const ransomNote = "bbbbbbg";
+// const magazine = "efjbdfbdgfjhhaiigfhbaejahgfbbgbjagbddfgdiaigdadhcfcj";
+
+// function Ransom() {
+//   const obj = {};
+//   const obj2 = {};
+
+//   for (const char of ransomNote) {
+//     obj[char] = (obj[char] || 0) + 1;
+//   }
+
+//   for (const char of magazine) {
+//     obj2[char] = (obj2[char] || 0) + 1;
+//   }
+
+//   for (const key of Object.keys(obj)) {
+//     if (!obj2[key] || obj[key] > obj2[key]) return false;
+//   }
+//   return true;
+// }
+// console.log("Ransom", Ransom());
