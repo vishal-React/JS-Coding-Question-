@@ -2550,7 +2550,7 @@
 // Output: false
 // ransomNote char need all char to be in magazine if not return false.
 
-// 1 way
+// 1 way calculte both string freq and than co compare that ransomNote char freq are in magazineor not
 // const ransomNote = "bbbbbbg";
 // const magazine = "efjbdfbdgfjhhaiigfhbaejahgfbbgbjagbddfgdiaigdadhcfcj";
 
@@ -2568,6 +2568,26 @@
 
 //   for (const key of Object.keys(obj)) {
 //     if (!obj2[key] || obj[key] > obj2[key]) return false;
+//   }
+//   return true;
+// }
+// console.log("Ransom", Ransom());
+
+// 2 way check that ransomNote char are in magazine freq or not if yes than decrease freq of that char in magazine
+// const ransomNote = "bbbbbbbg";
+// const magazine = "efjbdfbdgfjhhaiigfhbaejahgfbbgbjagbddfgdiaigdadhcfcj";
+
+// function Ransom() {
+//   const obj = {};
+
+//   for (const char of magazine) {
+//     obj[char] = (obj[char] || 0) + 1;
+//   }
+//   console.log("obj", obj);
+
+//   for (const char of ransomNote) {
+//     if (!obj[char]) return false;
+//     obj[char]--;
 //   }
 //   return true;
 // }
