@@ -2627,3 +2627,28 @@
 //   nums[i] = nums[i - 1] ? nums[i - 1] + nums[i] : nums[i];
 // }
 // console.log("arr", nums);
+
+//////////////////////////  303. Range Sum Query - Immutable prefix sum
+
+// [[[-2, 0, 3, -5, 2, -1]], [0, 2], [2, 5], [0, 5]]
+// Output [null, 1, -1, -3]
+
+// const arr = [-2, 0, 3, -5, 2, -1];
+
+// var NumArray = function (nums) {
+//   this.nums = nums;
+// };
+
+// NumArray.prototype.sumRange = function (left, right) {
+//   let sum = 0;
+//   for (let i = left; i <= right; i++) {
+//     sum += this.nums[i];
+//   }
+//   return sum;
+// };
+
+// const obj = new NumArray([-2, 0, 3, -5, 2, -1]);
+
+// console.log(obj.sumRange(0, 2));
+// console.log(obj.sumRange(2, 5));
+// console.log(obj.sumRange(0, 5));
