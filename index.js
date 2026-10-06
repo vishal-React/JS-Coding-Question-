@@ -2592,3 +2592,38 @@
 //   return true;
 // }
 // console.log("Ransom", Ransom());
+
+////////////////////////////  1480. Running Sum of 1d Array prefix sum
+
+// Input: nums = [1,2,3,4]
+// Output: [1,3,6,10]
+// Explanation: Running sum is obtained as follows: [1, 1+2, 1+2+3, 1+2+3+4].
+
+// 1 way with two variable sum and arr
+// const nums = [1, 2, 3, 4];
+// let sum = 0;
+// const arr = [];
+
+// for (const num of nums) {
+//   sum += num;
+//   arr.push(sum);
+// }
+// console.log("arr", arr);
+
+// 2 way with sum variable modify nums
+// const nums = [1, 2, 3, 4];
+// let sum = 0;
+
+// for (let i = 0; i < nums.length; i++) {
+//   sum += nums[i];
+//   nums[i] = sum;
+// }
+// console.log("arr", nums);
+
+// 3 way modify curent variable and take previous index value
+// const nums = [1, 2, 3, 4];
+
+// for (let i = 0; i < nums.length; i++) {
+//   nums[i] = nums[i - 1] ? nums[i - 1] + nums[i] : nums[i];
+// }
+// console.log("arr", nums);
