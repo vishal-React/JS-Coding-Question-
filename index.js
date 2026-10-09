@@ -2652,3 +2652,48 @@
 // console.log(obj.sumRange(0, 2));
 // console.log(obj.sumRange(2, 5));
 // console.log(obj.sumRange(0, 5));
+
+///////////////////////////  560. Subarray Sum Equals K prefix sum + freq
+// Input: nums = [1,2,3], k = 3
+// Output: 2
+
+// 1 way brute force
+// const nums = [1, 2, 3];
+// const k = 3;
+
+// let count = 0;
+// for (let i = 0; i < nums.length; i++) {
+//   let sum = 0;
+//   for (let j = i; j < nums.length; j++) {
+//     sum += nums[j];
+//     if (sum === k) {
+//       count++;
+//     }
+//   }
+// }
+// console.log("count", count);
+
+// 2 way prefix sum and freq
+// **Approach: Prefix Sum + HashMap (Frequency Count)**
+
+// * Calculate the running prefix sum while traversing the array.
+// * Calculate the required previous prefix sum using `currentSum - k`.
+// * If the required sum exists in the HashMap, add its frequency to `count`.
+// * Store the current prefix sum in the HashMap and increase its frequency.
+// * Initialize the HashMap with `{ 0: 1 }` to count subarrays starting at index `0`.
+// * Return the total count of subarrays whose sum equals `k`.
+
+// const nums = [1, 2, 3];
+// const k = 3;
+// const seen = { 0: 1 };
+// let count = 0;
+// let sum = 0;
+// for (const num of nums) {
+//   sum += num;
+//   const needed = sum - k;
+//   if (seen[needed]) {
+//     count += seen[needed];
+//   }
+//   seen[sum] = (seen[sum] || 0) + 1;
+// }
+// console.log("count", count);
