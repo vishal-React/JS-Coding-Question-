@@ -2697,3 +2697,54 @@
 //   seen[sum] = (seen[sum] || 0) + 1;
 // }
 // console.log("count", count);
+
+///////////////////////////// 523. Continuous Subarray Sum
+
+// Input: nums = [23,2,6,4,7], k = 6
+// Output: true
+// Explanation: [23, 2, 6, 4, 7] is an continuous subarray of size 5 whose elements sum up to 42.
+// 42 is a multiple of 6 because 42 = 7 * 6 and 7 is an integer.
+
+// 23,2,4,6,7  k = 6  2, 4
+// 23,2,6,4,7  k = 6  23, 2, 6, 4, 7
+
+// 1 way brute force check every two element window it is valid or not
+// const nums = [23, 2, 4, 6, 7];
+// const k = 6;
+
+// for (let i = 0; i < nums.length - 1; i++) {
+//   console.log(i);
+//   let sum = nums[i];
+//   for (let j = i + 1; j < nums.length; j++) {
+//     sum += nums[j];
+//     if (sum % k === 0) {
+//       console.log(true);
+//     }
+//   }
+// }
+
+// 2 way
+// const nums = [1, 2, 4];
+// const k = 6;
+
+// function prefixContinous() {
+//   let sum = 0;
+//   const obj = {};
+//   for (let i = 0; i < nums.length; i++) {
+//     sum += nums[i];
+//     console.log("sum", sum);
+//     console.log("obj", obj);
+//     if (sum % k === 0 && i) {
+//       return true;
+//     }
+//     const needed = sum - k;
+//     console.log("needed", needed);
+//     if (obj[needed] + 1 < i) {
+//       return true;
+//     }
+//     obj[sum] = i;
+//   }
+//   return false;
+// }
+// console.log("prefixContinous()", prefixContinous());
+// console.log(1%6)
