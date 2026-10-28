@@ -2763,3 +2763,44 @@
 // }
 // console.log("prefixContinous()", prefixContinous());
 // console.log(1%6)
+
+/////////////////////////// 704. Binary Search
+// Input: nums = [-1,0,3,5,9,12], target = 9
+// Output: 4
+
+// 1 way
+// const nums = [-5, -4, -3, -2, -1, 0, 3, 5, 9, 12, 13, 14, 25, 68, 69];
+// const target = 68;
+// const ans = nums.indexOf(target);
+// console.log("ans", ans);
+
+// 2 way binary search
+// const nums = [-5, -4, -3, -2, -1, 0, 2, 3, 5, 9, 12, 13, 14, 25, 68, 69];
+// const target = 68;
+// Approach:
+// 1. Find the middle index of the sorted array.
+// 2. If the middle element equals the target, return its index.
+// 3. If the target is greater, search the right half.
+// 4. If the target is smaller, search the left half.
+// 5. Repeat until the target is found or the search range becomes empty.
+// 6. If not found, return -1.
+
+// function binarySearch(target) {
+//   let leftBound = 0;
+//   let rightBound = nums.length - 1;
+
+//   while (leftBound <= rightBound) {
+//     let midIndex = Math.floor((leftBound + rightBound) / 2);
+//     if (nums[midIndex] === target) return midIndex;
+
+//     if (target > nums[midIndex]) {
+//       // shrink from left side
+//       leftBound = midIndex + 1;
+//     } else {
+//       // shrink from right side cause we need left side
+//       rightBound = midIndex - 1;
+//     }
+//   }
+//   return -1;
+// }
+// console.log(binarySearch(2));
