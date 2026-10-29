@@ -2804,3 +2804,32 @@
 //   return -1;
 // }
 // console.log(binarySearch(2));
+
+///////////////////////////// 35. Search Insert Position
+// nums = [1, 3, 5, 6];
+// target = 2;
+// output 1 index number cause it lie between 1 and 3
+
+// const nums = [1, 3, 5];
+// const target = 6;
+
+// function searchInsert() {
+//   let leftBound = 0;
+//   let rightBound = nums.length - 1;
+
+//   while (leftBound <= rightBound) {
+//     const midIndex = Math.floor((leftBound + rightBound) / 2);
+
+//     if (nums[midIndex] === target) return midIndex;
+//     console.log("midIndex", midIndex);
+//     if (target > nums[midIndex]) {
+//       leftBound = midIndex + 1;
+//     } else {
+//       rightBound = midIndex - 1;
+//     }
+//   }
+
+//   return leftBound;
+// }
+
+// console.log(searchInsert());
